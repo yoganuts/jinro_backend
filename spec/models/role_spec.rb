@@ -11,7 +11,7 @@
 
 RSpec.describe Role, type: :model do
   describe 'association' do
-    it { is_expected.to have_many(:villager) }
+    it { is_expected.to have_many(:villager).dependent(:restrict_with_error) }
   end
 
   describe 'validates' do

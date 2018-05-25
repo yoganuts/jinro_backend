@@ -12,7 +12,7 @@
 #
 
 class Role < ApplicationRecord
-  has_many :villager
+  has_many :villager, dependent: :restrict_with_error
 
   validates :name, presence: true
   validates :code, presence: true, uniqueness: true
