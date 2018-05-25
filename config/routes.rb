@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :talks
   resources :villages do
     resources :villagers, shallow: true
   end
