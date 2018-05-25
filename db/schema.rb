@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_25_115223) do
+ActiveRecord::Schema.define(version: 2018_05_25_135712) do
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "talks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "villager_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["villager_id"], name: "index_talks_on_villager_id"
   end
 
   create_table "villagers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -38,6 +46,7 @@ ActiveRecord::Schema.define(version: 2018_05_25_115223) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "talks", "villagers"
   add_foreign_key "villagers", "roles"
   add_foreign_key "villagers", "villages"
 end
