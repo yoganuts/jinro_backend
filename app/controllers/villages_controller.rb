@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class VillagesController < ApplicationController
-  before_action :set_village, only: [:show, :update, :destroy]
+  before_action :set_village, only: %i[show update destroy]
 
   # GET /villages
   def index
@@ -39,13 +41,14 @@ class VillagesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_village
-      @village = Village.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def village_params
-      params.require(:village).permit(:name, :code, :status)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_village
+    @village = Village.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def village_params
+    params.require(:village).permit(:name, :code, :status)
+  end
 end
