@@ -15,6 +15,7 @@ RSpec.describe Villager, type: :model do
   describe 'association' do
     it { is_expected.to belong_to(:village) }
     it { is_expected.to belong_to(:role) }
+    it { is_expected.to have_many(:talks).dependent(:destroy) }
   end
 
   describe 'validates' do

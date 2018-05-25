@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class TalksController < ApplicationController
-  before_action :set_talk, only: [:show, :update, :destroy]
+  before_action :set_talk, only: %i[show update destroy]
 
   # GET /talks
   def index
@@ -39,13 +41,14 @@ class TalksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_talk
-      @talk = Talk.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def talk_params
-      params.require(:talk).permit(:villager_id, :content)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_talk
+    @talk = Talk.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def talk_params
+    params.require(:talk).permit(:villager_id, :content)
+  end
 end

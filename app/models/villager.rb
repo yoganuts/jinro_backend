@@ -16,6 +16,7 @@
 class Villager < ApplicationRecord
   belongs_to :village
   belongs_to :role
+  has_many :talks, dependent: :destroy
 
   validates :name, presence: true
   validates :code, presence: true, uniqueness: true
