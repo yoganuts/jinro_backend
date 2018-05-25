@@ -5,7 +5,7 @@ class VillagersController < ApplicationController
 
   # GET /villagers
   def index
-    @villagers = Villager.all
+    @villagers = Villager.where(village_id: params[:village_id])
 
     render json: @villagers
   end
@@ -44,7 +44,7 @@ class VillagersController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_villager
-    @villager = Villager.find(params[:id])
+    @villager = Villager.where(village_id: params[:village_id]).find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
