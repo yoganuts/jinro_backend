@@ -16,4 +16,7 @@
 class Villager < ApplicationRecord
   belongs_to :village
   belongs_to :role
+
+  validates :name, presence: true
+  validates :code, presence: true, uniqueness: true
 end
