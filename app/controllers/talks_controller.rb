@@ -5,7 +5,9 @@ class TalksController < ApplicationController
 
   # GET /talks
   def index
-    @talks = Talk.includes(:villager).references(:villager).merge(Villager.where(village_id: params[:village_id]))
+    @talks = Talk.includes(:villager)
+                 .references(:villager)
+                 .merge(Villager.where(village_id: params[:village_id]))
 
     render json: @talks
   end
@@ -44,7 +46,10 @@ class TalksController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_talk
-    @talk = Talk.includes(:villager).references(:villager).merge(Villager.where(village_id: params[:village_id])).find(params[:id])
+    @talk = Talk.includes(:villager)
+                .references(:villager)
+                .merge(Villager.where(village_id: params[:village_id]))
+                .find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
