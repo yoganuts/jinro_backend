@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Role.destroy_all
-role_villager = Role.create(name: '村人', code: 'villager')
-role_beast = Role.create(name: '人狼', code: 'beast')
+role_villager = Role.create(name: '村人', code: :villager)
+role_beast = Role.create(name: '人狼', code: :beast)
 
 # sample data
 Village.destroy_all
