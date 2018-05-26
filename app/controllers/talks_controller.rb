@@ -11,7 +11,7 @@ class TalksController < ApplicationController
                  .order(created_at: :desc)
                  .page(params[:page]).per(10)
 
-    render json: @talks
+    render json: @talks.to_json(include: [:villager])
   end
 
   # GET /talks/1
