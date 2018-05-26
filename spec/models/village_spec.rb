@@ -12,7 +12,7 @@
 
 RSpec.describe Village, type: :model do
   describe 'association' do
-    it { is_expected.to have_many(:villager).dependent(:restrict_with_error) }
+    it { is_expected.to have_many(:villagers).dependent(:destroy) }
   end
 
   describe 'validates' do

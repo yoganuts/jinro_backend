@@ -13,7 +13,7 @@
 #
 
 class Village < ApplicationRecord
-  has_many :villager, dependent: :restrict_with_error
+  has_many :villagers, dependent: :destroy
 
   validates :name, presence: true
   validates :code, presence: true, uniqueness: true
