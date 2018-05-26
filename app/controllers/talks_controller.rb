@@ -8,6 +8,7 @@ class TalksController < ApplicationController
     @talks = Talk.includes(:villager)
                  .references(:villager)
                  .merge(Villager.where(village_id: params[:village_id]))
+                 .order(created_at: :asc)
 
     render json: @talks
   end
