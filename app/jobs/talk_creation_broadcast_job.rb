@@ -7,8 +7,9 @@ class TalkCreationBroadcastJob < ApplicationJob
     ActionCable.server.broadcast(
       'talk_channel',
       id: talk.id,
+      villager_id: talk.villager_id,
       content: talk.content,
-      created_at: talk.created_at.strftime('%H:%M')
+      created_at: talk.created_at
     )
   end
 end
