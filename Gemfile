@@ -66,4 +66,12 @@ group :development, :test do
   gem 'faker'
 end
 
+group :deployment do
+  gem 'capistrano'
+  gem 'capistrano-bundle'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  # gem 'capistrano-sidekiq'
+end
+
 gem 'kaminari'
