@@ -74,4 +74,6 @@ group :deployment do
   # gem 'capistrano-sidekiq'
 end
 
+gem 'dotenv-rails'
+
 gem 'kaminari'
