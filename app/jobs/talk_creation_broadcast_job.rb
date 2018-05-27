@@ -5,7 +5,7 @@ class TalkCreationBroadcastJob < ApplicationJob
 
   def perform(talk)
     ActionCable.server.broadcast(
-      'talk_channel',
+      "talk_#{talk.villager.village_id}",
       id: talk.id,
       villager_id: talk.villager_id,
       content: talk.content,
