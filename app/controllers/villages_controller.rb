@@ -20,7 +20,7 @@ class VillagesController < ApplicationController
     @village = Village.new(village_params)
 
     if @village.save
-      render json: @village, status: :created, location: @village
+      render json: @village.to_json(include: [:villagers]), status: :created, location: @village
     else
       render json: @village.errors, status: :unprocessable_entity
     end
@@ -49,6 +49,6 @@ class VillagesController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def village_params
-    params.require(:village).permit(:name, :code, :status)
+    params.require(:village).permit(:name, :code, :status, villagers_attributes: %i[name code])
   end
 end

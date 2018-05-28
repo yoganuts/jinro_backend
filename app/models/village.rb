@@ -14,7 +14,14 @@
 
 class Village < ApplicationRecord
   has_many :villagers, dependent: :destroy
+  accepts_nested_attributes_for :villagers, allow_destroy: true
 
   validates :name, presence: true
   validates :code, presence: true, uniqueness: true
+
+  after_initialize :set_initial_value, if: :new_record?
+
+  def set_initial_value
+    self.code = SecureRandom.base64(16) if code.blank?
+  end
 end
