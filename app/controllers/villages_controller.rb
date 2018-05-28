@@ -5,9 +5,9 @@ class VillagesController < ApplicationController
 
   # GET /villages
   def index
-    @villages = Village.all
+    @villages = Village.search(params[:q]).result.page(params[:page])
 
-    render json: @villages
+    render json: @villages.to_json(include: [:villagers])
   end
 
   # GET /villages/1
