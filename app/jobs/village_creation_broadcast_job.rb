@@ -7,7 +7,8 @@ class VillageCreationBroadcastJob < ApplicationJob
     ActionCable.server.broadcast(
       'village',
       id: village.id,
-      name: village.name
+      name: village.name,
+      villagers: village.villagers.as_json
     )
   end
 end
