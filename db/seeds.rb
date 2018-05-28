@@ -15,11 +15,21 @@ role_beast = Role.create(name: '人狼', code: :beast)
 Village.destroy_all
 
 4.times do |i|
-  village = Village.new(name: Faker::Zelda.location, code: SecureRandom.base64(16))
+  village = Village.new(
+    name: Faker::Zelda.location,
+    code: SecureRandom.base64(16),
+    image_no: Random.rand(0..3)
+  )
   lottery_box = 4.times.reduce([true]) { |lot, _i| lot << false }
   5.times do |j|
     role = lottery_box[j] ? role_beast : role_villager
-    village.villagers.build(village: village, name: "#{Faker::Name.last_name} #{Faker::Name.first_name}", code: SecureRandom.base64(16), role: role)
+    village.villagers.build(
+      village: village,
+      name: "#{Faker::Name.last_name} #{Faker::Name.first_name}",
+      code: SecureRandom.base64(16),
+      role: role,
+      image_no: Random.rand(0..3)
+    )
   end
   village.villagers.each do |villager|
     Random.rand(1..10).times do |j|
