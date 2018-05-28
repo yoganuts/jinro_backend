@@ -77,3 +77,5 @@ end
 gem 'dotenv-rails'
 
 gem 'kaminari'
+
+gem 'ransack'
