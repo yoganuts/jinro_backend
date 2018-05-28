@@ -14,7 +14,7 @@ role_beast = Role.create(name: '人狼', code: :beast)
 # sample data
 Village.destroy_all
 
-10.times do |i|
+4.times do |i|
   village = Village.new(name: Faker::Zelda.location, code: SecureRandom.base64(16))
   lottery_box = 4.times.reduce([true]) { |lot, _i| lot << false }
   5.times do |j|
