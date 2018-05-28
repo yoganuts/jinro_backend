@@ -8,7 +8,8 @@ class VillagerCreationBroadcastJob < ApplicationJob
       "villager_#{villager.village_id}",
       id: villager.id,
       name: villager.name,
-      code: villager.code
+      code: villager.code,
+      image_no: villager.image_no
     )
   end
 end

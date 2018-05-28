@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_25_135712) do
+ActiveRecord::Schema.define(version: 2018_05_28_160916) do
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_05_25_135712) do
     t.bigint "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "image_no", default: 0
     t.index ["role_id"], name: "index_villagers_on_role_id"
     t.index ["village_id"], name: "index_villagers_on_village_id"
   end
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2018_05_25_135712) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "image_no", default: 0
   end
 
   add_foreign_key "talks", "villagers"

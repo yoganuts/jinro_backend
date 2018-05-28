@@ -49,6 +49,6 @@ class VillagersController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def villager_params
-    params.require(:villager).permit(:name, :code, :village_id, :role_id)
+    params.require(:villager).permit(:name, :code, :village_id, :role_id, :image_no)
   end
 end

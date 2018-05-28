@@ -8,6 +8,7 @@ class VillageCreationBroadcastJob < ApplicationJob
       'village',
       id: village.id,
       name: village.name,
+      image_no: village.image_no,
       villagers: village.villagers.as_json
     )
   end
