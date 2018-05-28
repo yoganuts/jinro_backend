@@ -21,6 +21,10 @@ class Villager < ApplicationRecord
   validates :name, presence: true
   validates :code, presence: true, uniqueness: true
 
+  after_create_commit do
+    VillagerCreationBroadcastJob.perform_later(self)
+  end
+
   after_initialize :set_initial_value, if: :new_record?
 
   def set_initial_value
