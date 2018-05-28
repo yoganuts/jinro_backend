@@ -1,24 +1,10 @@
-# README
+This is api for Warewolf Game.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Example frontend project is [jinro_frontend](https://github.com/yoganuts/jinro_frontend) that is created by react.
 
-Things you may want to cover:
+## usage
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+git clone https://github.com/yoganuts/jinro_backend
+rails s
+```
