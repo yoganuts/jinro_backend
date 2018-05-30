@@ -5,7 +5,9 @@ class TalksController < ApplicationController
 
   # GET /talks
   def index
-    @talks = Talk.includes(:villager)
+    @talks = Talk.search(params[:q])
+                 .result
+                 .includes(:villager)
                  .references(:villager)
                  .merge(Villager.where(village_id: params[:village_id]))
                  .order(created_at: :desc)
