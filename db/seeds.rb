@@ -28,12 +28,12 @@ Village.destroy_all
       name: "#{Faker::Name.last_name} #{Faker::Name.first_name}",
       code: SecureRandom.base64(16),
       role: role,
-      image_no: Random.rand(0..3)
+      image_no: Random.rand(0..11)
     )
   end
   village.villagers.each do |villager|
     Random.rand(1..10).times do |j|
-      villager.talks.build(content: Faker::Lorem.sentence)
+      villager.talks.build(content: Faker::Lorem.sentence, created_at: Random.rand(-5..5).hours.ago)
     end
   end
   village.save
