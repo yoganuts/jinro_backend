@@ -11,7 +11,7 @@ class TalksController < ApplicationController
                  .references(:villager)
                  .merge(Villager.where(village_id: params[:village_id]))
                  .order(created_at: :desc)
-                 .page(params[:page]).per(10)
+                 .page(params[:page]).per(20)
 
     render json: @talks.to_json(include: [:villager])
   end
