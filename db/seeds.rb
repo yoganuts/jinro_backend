@@ -33,7 +33,7 @@ Village.destroy_all
   end
   village.villagers.each do |villager|
     Random.rand(1..10).times do |j|
-      villager.talks.build(content: Faker::Lorem.sentence, created_at: Random.rand(-5..5).hours.ago)
+      villager.talks.build(content: Faker::Lorem.sentence, created_at: Random.rand(1..5).hours.ago)
     end
   end
   village.save
