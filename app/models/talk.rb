@@ -12,7 +12,7 @@
 #
 
 class Talk < ApplicationRecord
-  belongs_to :villager
+  belongs_to :villager, optional: true
 
   validates :content, presence: true
 
