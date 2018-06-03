@@ -23,6 +23,7 @@ class Villager < ApplicationRecord
 
   after_create_commit do
     VillagerCreationBroadcastJob.perform_later(self)
+    self.village.talks.create(content: "#{self.name}が参加しました")
   end
 
   after_initialize :set_initial_value, if: :new_record?

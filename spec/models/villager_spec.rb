@@ -58,4 +58,8 @@ RSpec.describe Villager, type: :model do
       it { expect(subject.role.code).to eq 'foo' }
     end
   end
+
+  describe 'after_create_commit' do
+    # FIXME
+  end
 end
