@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: villagers
@@ -7,6 +6,7 @@
 #  id         :bigint(8)        not null, primary key
 #  name       :string(255)
 #  code       :string(255)
+#  image_no   :integer          default(0)
 #  village_id :bigint(8)
 #  role_id    :bigint(8)
 #  created_at :datetime         not null

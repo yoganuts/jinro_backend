@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: villages
@@ -8,6 +7,7 @@
 #  name       :string(255)
 #  code       :string(255)
 #  status     :integer
+#  image_no   :integer          default(0)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

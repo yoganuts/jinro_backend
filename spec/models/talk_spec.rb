@@ -4,6 +4,7 @@
 #
 #  id          :bigint(8)        not null, primary key
 #  villager_id :bigint(8)
+#  village_id  :bigint(8)
 #  content     :text(65535)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
