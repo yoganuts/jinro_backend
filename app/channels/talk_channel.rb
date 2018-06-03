@@ -10,6 +10,7 @@ class TalkChannel < ApplicationCable::Channel
   def create(options)
     Talk.create(
       villager: Villager.find_by(code: options.fetch('villager_code')),
+      village_id: options.fetch('village_id'),
       content: options.fetch('content')
     )
   end
