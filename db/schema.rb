@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_28_160916) do
+ActiveRecord::Schema.define(version: 2018_06_03_130548) do
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
@@ -21,20 +21,22 @@ ActiveRecord::Schema.define(version: 2018_05_28_160916) do
 
   create_table "talks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.bigint "villager_id"
+    t.bigint "village_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["village_id"], name: "index_talks_on_village_id"
     t.index ["villager_id"], name: "index_talks_on_villager_id"
   end
 
   create_table "villagers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
     t.string "name"
     t.string "code"
+    t.integer "image_no", default: 0
     t.bigint "village_id"
     t.bigint "role_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "image_no", default: 0
     t.index ["role_id"], name: "index_villagers_on_role_id"
     t.index ["village_id"], name: "index_villagers_on_village_id"
   end
@@ -43,12 +45,13 @@ ActiveRecord::Schema.define(version: 2018_05_28_160916) do
     t.string "name"
     t.string "code"
     t.integer "status"
+    t.integer "image_no", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "image_no", default: 0
   end
 
   add_foreign_key "talks", "villagers"
+  add_foreign_key "talks", "villages"
   add_foreign_key "villagers", "roles"
   add_foreign_key "villagers", "villages"
 end
