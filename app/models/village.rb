@@ -15,6 +15,7 @@
 class Village < ApplicationRecord
   has_many :villagers, dependent: :destroy
   accepts_nested_attributes_for :villagers, allow_destroy: true
+  has_many :talks, dependent: :destroy
 
   validates :name, presence: true
   validates :code, presence: true, uniqueness: true

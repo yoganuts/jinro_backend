@@ -11,6 +11,7 @@
 
 RSpec.describe Talk, type: :model do
   describe 'association' do
+    it { is_expected.to belong_to(:village) }
     it { is_expected.to belong_to(:villager) }
   end
 

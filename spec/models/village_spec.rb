@@ -14,6 +14,7 @@ RSpec.describe Village, type: :model do
   describe 'association' do
     it { is_expected.to have_many(:villagers).dependent(:destroy) }
     it { is_expected.to accept_nested_attributes_for(:villagers).allow_destroy(true) }
+    it { is_expected.to have_many(:talks).dependent(:destroy) }
   end
 
   describe 'validates' do
