@@ -53,6 +53,6 @@ class TalksController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def talk_params
-    params.require(:talk).permit(:villager_id, :content)
+    params.require(:talk).permit(:villager_id, :content, :stamp_no)
   end
 end

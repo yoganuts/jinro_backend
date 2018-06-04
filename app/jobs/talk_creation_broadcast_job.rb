@@ -9,6 +9,7 @@ class TalkCreationBroadcastJob < ApplicationJob
       id: talk.id,
       villager_id: talk.villager_id,
       content: talk.content,
+      stamp_no: talk.stamp_no,
       created_at: talk.created_at,
       villager: talk.villager.as_json
     )
