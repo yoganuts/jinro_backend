@@ -16,8 +16,4 @@ RSpec.describe Talk, type: :model do
     it { is_expected.to belong_to(:village) }
     it { is_expected.to belong_to(:villager) }
   end
-
-  describe 'validates' do
-    it { is_expected.to validate_presence_of(:content) }
-  end
 end

@@ -16,8 +16,6 @@ class Talk < ApplicationRecord
   belongs_to :village
   belongs_to :villager, optional: true
 
-  validates :content, presence: true
-
   after_create_commit do
     TalkCreationBroadcastJob.perform_later(self)
   end
