@@ -8,3 +8,5 @@ Example frontend project is [jinro_frontend](https://github.com/yoganuts/jinro_f
 git clone https://github.com/yoganuts/jinro_backend
 rails s
 ```
+
+修正
