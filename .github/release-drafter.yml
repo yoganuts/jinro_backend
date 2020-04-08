@@ -6,6 +6,7 @@ categories:
       - 'fix'
       - 'bugfix'
       - 'bug'
+      - '不具合'
 template: |
   ## What’s Changed
 
