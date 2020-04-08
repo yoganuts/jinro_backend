@@ -1,13 +1,4 @@
-categories:
-  - title: '🚀 Features'
-    label: 'feature'
-  - title: '🐛 Bug Fixes'
-    labels:
-      - 'fix'
-      - 'bugfix'
-      - 'bug'
-      - '不具合'
 template: |
-  ## What’s Changed
+  ## リリース内容
 
   $CHANGES
